@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Win", "Salt.Spa.Win\Salt.Spa.Win.csproj", "{71481E39-8B83-4295-B25E-6A1758F3B197}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Dal", "Salt.Spa.Dal\Salt.Spa.Dal.csproj", "{F7AFD5F7-9DD9-4BC0-8E81-933EC43681ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Infrastructure", "Salt.Spa.Infrastructure\Salt.Spa.Infrastructure.csproj", "{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{71481E39-8B83-4295-B25E-6A1758F3B197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71481E39-8B83-4295-B25E-6A1758F3B197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71481E39-8B83-4295-B25E-6A1758F3B197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7AFD5F7-9DD9-4BC0-8E81-933EC43681ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7AFD5F7-9DD9-4BC0-8E81-933EC43681ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7AFD5F7-9DD9-4BC0-8E81-933EC43681ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7AFD5F7-9DD9-4BC0-8E81-933EC43681ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
