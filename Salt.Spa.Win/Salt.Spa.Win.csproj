@@ -122,9 +122,17 @@
       <Project>{f7afd5f7-9dd9-4bc0-8e81-933ec43681ed}</Project>
       <Name>Salt.Spa.Dal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Salt.Spa.DataManager\Salt.Spa.DataManager.csproj">
+      <Project>{63c94daa-fb6f-46c3-b11a-c2d5e28230e4}</Project>
+      <Name>Salt.Spa.DataManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Salt.Spa.Infrastructure\Salt.Spa.Infrastructure.csproj">
       <Project>{bcf2b014-14ef-425e-b3fe-cc45ad1fe9ca}</Project>
       <Name>Salt.Spa.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Salt.Spa.Unity\Salt.Spa.Unity.csproj">
+      <Project>{50b04cdc-a1af-48dd-92ca-0757f2d34d03}</Project>
+      <Name>Salt.Spa.Unity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

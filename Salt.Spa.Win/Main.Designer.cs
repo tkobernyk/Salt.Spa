@@ -32,9 +32,9 @@ namespace Salt.Spa.Win
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -341,14 +341,14 @@ namespace Salt.Spa.Win
             this.schDailyScheduler.Start = new System.DateTime(2018, 9, 4, 0, 0, 0, 0);
             this.schDailyScheduler.TabIndex = 1;
             this.schDailyScheduler.Views.DayView.ShowWorkTimeOnly = true;
-            this.schDailyScheduler.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schDailyScheduler.Views.DayView.TimeRulers.Add(timeRuler4);
             this.schDailyScheduler.Views.DayView.TimeScale = System.TimeSpan.Parse("00:15:00");
             this.schDailyScheduler.Views.DayView.TimeSlots.Add(new DevExpress.XtraScheduler.TimeSlot(System.TimeSpan.Parse("00:15:00"), "15 minutes"));
             this.schDailyScheduler.Views.DayView.WorkTime = new DevExpress.XtraScheduler.TimeOfDayInterval(System.TimeSpan.Parse("10:00:00"), System.TimeSpan.Parse("19:00:00"));
             this.schDailyScheduler.Views.FullWeekView.Enabled = true;
-            this.schDailyScheduler.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schDailyScheduler.Views.FullWeekView.TimeRulers.Add(timeRuler5);
             this.schDailyScheduler.Views.WeekView.Enabled = false;
-            this.schDailyScheduler.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schDailyScheduler.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
             // 
             // tbSearch
             // 
@@ -371,14 +371,15 @@ namespace Salt.Spa.Win
             this.gbCustomerGrid.TabIndex = 1;
             this.gbCustomerGrid.TabStop = false;
             this.gbCustomerGrid.Text = "Знайдені клієнти";
+            this.gbCustomerGrid.Visible = false;
             // 
             // gcSessions
             // 
             this.gcSessions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSessions.Location = new System.Drawing.Point(3, 120);
+            this.gcSessions.Location = new System.Drawing.Point(3, 163);
             this.gcSessions.MainView = this.gridView2;
             this.gcSessions.Name = "gcSessions";
-            this.gcSessions.Size = new System.Drawing.Size(695, 223);
+            this.gcSessions.Size = new System.Drawing.Size(695, 180);
             this.gcSessions.TabIndex = 1;
             this.gcSessions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -400,7 +401,7 @@ namespace Salt.Spa.Win
             this.gcCustomers.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gcCustomers.MainView = this.gridView1;
             this.gcCustomers.Name = "gcCustomers";
-            this.gcCustomers.Size = new System.Drawing.Size(695, 104);
+            this.gcCustomers.Size = new System.Drawing.Size(695, 147);
             this.gcCustomers.TabIndex = 0;
             this.gcCustomers.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
             this.gcCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -414,6 +415,7 @@ namespace Salt.Spa.Win
             this.gridView1.OptionsCustomization.AllowFilter = false;
             this.gridView1.OptionsCustomization.AllowGroup = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // gbParameters
             // 
@@ -477,6 +479,7 @@ namespace Salt.Spa.Win
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Знайти";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSubscription
             // 
@@ -518,10 +521,6 @@ namespace Salt.Spa.Win
             this.pnlNotification.Size = new System.Drawing.Size(1006, 50);
             this.pnlNotification.TabIndex = 4;
             this.pnlNotification.Visible = false;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(Salt.Spa.Win.FrmMain);
             // 
             // FrmMain
             // 

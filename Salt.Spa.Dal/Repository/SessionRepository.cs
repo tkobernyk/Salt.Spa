@@ -7,27 +7,27 @@ using Salt.Spa.Infrastructure.Interface;
 
 namespace Salt.Spa.Dal.Repository
 {
-    public class ClientRepository : IRepository<Client>
+    public class SessionRepository : IRepository<Session>
     {
-        private IClientContext _context;
-        public ClientRepository(IClientContext context)
+        private readonly ISessionContext _context;
+        public SessionRepository(ISessionContext context)
         {
             _context = context;
         }
 
-        public int Add(Client entity)
+        public int Add(Session entity)
         {
-            _context.Clients.Add(entity);
+            _context.Sessions.Add(entity);
             _context.SaveChanges();
             return entity.Id;
         }
 
-        public IEntity Update(Client entity)
+        public Session Update(Session entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(Client entity)
+        public bool Delete(Session entity)
         {
             throw new NotImplementedException();
         }
@@ -37,14 +37,14 @@ namespace Salt.Spa.Dal.Repository
             throw new NotImplementedException();
         }
 
-        public IEntity GetById(int entityId)
+        public Session GetById(int entityId)
         {
-            return _context.Clients.FirstOrDefault(c => c.Id == entityId);
+            return _context.Sessions.FirstOrDefault(c => c.Id == entityId);
         }
 
-        public IEnumerable<Client> GetAll()
+        public IEnumerable<Session> GetAll()
         {
-            return _context.Clients;
+            return _context.Sessions;
         }
     }
 }

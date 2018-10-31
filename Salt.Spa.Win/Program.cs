@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Salt.Spa.Dal;
+using Salt.Spa.Unity;
 
 namespace Salt.Spa.Win
 {
@@ -15,6 +16,7 @@ namespace Salt.Spa.Win
         [STAThread]
         static void Main()
         {
+            Resolver.InitContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());

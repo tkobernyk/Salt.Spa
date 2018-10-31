@@ -3,7 +3,7 @@ using Salt.Spa.Infrastructure.Interface;
 
 namespace Salt.Spa.Dal.Entity
 {
-    public class Client : IEntity
+    public class Customer : IEntity
     {
         [Key]
         public int Id { get; set; }

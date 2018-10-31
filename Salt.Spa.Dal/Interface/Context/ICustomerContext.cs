@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Salt.Spa.Dal.Interface
 {
-    public interface IClientContext : IDisposable
+    public interface ICustomerContext : IDisposable
     {
-        IDbSet<Client> Clients { get; set; }
+        IDbSet<Customer> Customers { get; set; }
         int SaveChanges();
     }
 }

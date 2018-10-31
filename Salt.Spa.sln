@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Dal", "Salt.Spa.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Infrastructure", "Salt.Spa.Infrastructure\Salt.Spa.Infrastructure.csproj", "{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.DataManager", "Salt.Spa.DataManager\Salt.Spa.DataManager.csproj", "{63C94DAA-FB6F-46C3-B11A-C2D5E28230E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salt.Spa.Unity", "Salt.Spa.Unity\Salt.Spa.Unity.csproj", "{50B04CDC-A1AF-48DD-92CA-0757F2D34D03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C94DAA-FB6F-46C3-B11A-C2D5E28230E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C94DAA-FB6F-46C3-B11A-C2D5E28230E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C94DAA-FB6F-46C3-B11A-C2D5E28230E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C94DAA-FB6F-46C3-B11A-C2D5E28230E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B04CDC-A1AF-48DD-92CA-0757F2D34D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B04CDC-A1AF-48DD-92CA-0757F2D34D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B04CDC-A1AF-48DD-92CA-0757F2D34D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B04CDC-A1AF-48DD-92CA-0757F2D34D03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

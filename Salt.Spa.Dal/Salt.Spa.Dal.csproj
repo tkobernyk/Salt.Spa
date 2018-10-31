@@ -62,12 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\ISubscriptionContext.cs" />
-    <Compile Include="Interface\IClientContext.cs" />
-    <Compile Include="Repository\ClientRepository.cs" />
+    <Compile Include="Entity\Session.cs" />
+    <Compile Include="Entity\SubscriptionStatus.cs" />
+    <Compile Include="Interface\Repository\ICustomerRepository.cs" />
+    <Compile Include="Interface\Repository\ISubscriptionRepository.cs" />
+    <Compile Include="Interface\Context\ISessionContext.cs" />
+    <Compile Include="Interface\Context\ISubscriptionContext.cs" />
+    <Compile Include="Interface\Context\ICustomerContext.cs" />
+    <Compile Include="Repository\SubscriptionRepository.cs" />
+    <Compile Include="Repository\SessionRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="SaltSpaContext.cs" />
-    <Compile Include="Entity\Client.cs" />
-    <Compile Include="Entity\SessionState.cs" />
+    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\SessionStatus.cs" />
     <Compile Include="Entity\Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

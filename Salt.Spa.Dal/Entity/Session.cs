@@ -1,29 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Salt.Spa.Infrastructure.Interface;
 
 namespace Salt.Spa.Dal.Entity
 {
-    public class Subscription : IEntity
+    public class Session : IEntity
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public int CustomerId { get; set; }
         [Required]
         [ForeignKey("CustomerId")]
-        public virtual  Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
         [Required]
-        [StringLength(100)]
-        public string Number { get; set; }
+        public DateTime DateTimeStart { get; set; }
         [Required]
-        public int SessionCount { get; set; }
+        public int Duration { get; set; }
         [Required]
-        public DateTime StartDate { get; set; }
-        [Required]
-        [DefaultValue(SubscriptionStatus.Active)]
-        public SubscriptionStatus Status { get; set; }
+        [DefaultValue(SessionStatus.Planned)]
+        public SessionStatus Status { get; set; }
+
     }
 }

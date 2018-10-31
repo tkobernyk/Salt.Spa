@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Salt.Spa.Dal.Entity
 {
-    public enum SessionState
+    public enum SessionStatus
     {
         Planned = 0,
         Active = 1,
