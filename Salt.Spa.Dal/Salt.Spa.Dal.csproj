@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Session.cs" />
-    <Compile Include="Entity\SubscriptionStatus.cs" />
+    <Compile Include="Interface\Repository\ISessionRepository.cs" />
     <Compile Include="Interface\Repository\ICustomerRepository.cs" />
     <Compile Include="Interface\Repository\ISubscriptionRepository.cs" />
     <Compile Include="Interface\Context\ISessionContext.cs" />
@@ -74,7 +74,6 @@
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="SaltSpaContext.cs" />
     <Compile Include="Entity\Customer.cs" />
-    <Compile Include="Entity\SessionStatus.cs" />
     <Compile Include="Entity\Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

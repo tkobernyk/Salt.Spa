@@ -14,5 +14,6 @@ namespace Salt.Spa.Dal.Entity
         public string LastName { get; set; }
         [StringLength(13)]
         public string Phone { get; set; }
+        public Subscription Subscription { get; set; }
     }
 }

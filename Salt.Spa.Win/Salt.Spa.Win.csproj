@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomerSubscriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomerSubscriptionForm.Designer.cs">
+      <DependentUpon>AddCustomerSubscriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddCustomerSubscriptionForm.resx">
+      <DependentUpon>AddCustomerSubscriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomAppointmentForm.resx">
       <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -102,8 +111,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\FrmMain.datasource" />
-    <None Include="Properties\DataSources\Salt.Spa.Dal.Repository.ClientRepository.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,16 +125,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Salt.Spa.Dal\Salt.Spa.Dal.csproj">
-      <Project>{f7afd5f7-9dd9-4bc0-8e81-933ec43681ed}</Project>
-      <Name>Salt.Spa.Dal</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Salt.Spa.DataManager\Salt.Spa.DataManager.csproj">
       <Project>{63c94daa-fb6f-46c3-b11a-c2d5e28230e4}</Project>
       <Name>Salt.Spa.DataManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\Salt.Spa.Infrastructure\Salt.Spa.Infrastructure.csproj">
-      <Project>{bcf2b014-14ef-425e-b3fe-cc45ad1fe9ca}</Project>
+      <Project>{BCF2B014-14EF-425E-B3FE-CC45AD1FE9CA}</Project>
       <Name>Salt.Spa.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Salt.Spa.Unity\Salt.Spa.Unity.csproj">

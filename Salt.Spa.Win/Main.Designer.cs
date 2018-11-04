@@ -38,9 +38,8 @@ namespace Salt.Spa.Win
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.клієнтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.додатиКлієнтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutSaltSPAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbsMain = new System.Windows.Forms.TabControl();
@@ -61,10 +60,11 @@ namespace Salt.Spa.Win
             this.schDailyScheduler = new DevExpress.XtraScheduler.SchedulerControl();
             this.tbSearch = new System.Windows.Forms.TabPage();
             this.gbCustomerGrid = new System.Windows.Forms.GroupBox();
+            this.lblSessions = new System.Windows.Forms.Label();
             this.gcSessions = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvSessions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcCustomers = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gbParameters = new System.Windows.Forms.GroupBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnLock = new System.Windows.Forms.Button();
@@ -76,7 +76,8 @@ namespace Salt.Spa.Win
             this.lblSubscription = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.pnlNotification = new System.Windows.Forms.Panel();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sessionSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adornerUIManager1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -91,11 +92,12 @@ namespace Salt.Spa.Win
             this.tbSearch.SuspendLayout();
             this.gbCustomerGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSessions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSessions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCustomers)).BeginInit();
             this.gbParameters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionSource)).BeginInit();
             this.SuspendLayout();
             // 
             // adornerUIManager1
@@ -105,7 +107,7 @@ namespace Salt.Spa.Win
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.addToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -113,27 +115,20 @@ namespace Salt.Spa.Win
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // addToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.клієнтиToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newCustomerToolStripMenuItem});
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.addToolStripMenuItem.Text = "&Додати";
             // 
-            // клієнтиToolStripMenuItem
+            // newCustomerToolStripMenuItem
             // 
-            this.клієнтиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.додатиКлієнтаToolStripMenuItem});
-            this.клієнтиToolStripMenuItem.Name = "клієнтиToolStripMenuItem";
-            this.клієнтиToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.клієнтиToolStripMenuItem.Text = "Клієнти";
-            // 
-            // додатиКлієнтаToolStripMenuItem
-            // 
-            this.додатиКлієнтаToolStripMenuItem.Name = "додатиКлієнтаToolStripMenuItem";
-            this.додатиКлієнтаToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.додатиКлієнтаToolStripMenuItem.Text = "Додати К&лієнта";
+            this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
+            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newCustomerToolStripMenuItem.Text = "Новий клієнт";
+            this.newCustomerToolStripMenuItem.Click += new System.EventHandler(this.newCustomerToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -363,6 +358,7 @@ namespace Salt.Spa.Win
             // 
             // gbCustomerGrid
             // 
+            this.gbCustomerGrid.Controls.Add(this.lblSessions);
             this.gbCustomerGrid.Controls.Add(this.gcSessions);
             this.gbCustomerGrid.Controls.Add(this.gcCustomers);
             this.gbCustomerGrid.Location = new System.Drawing.Point(289, 3);
@@ -373,25 +369,33 @@ namespace Salt.Spa.Win
             this.gbCustomerGrid.Text = "Знайдені клієнти";
             this.gbCustomerGrid.Visible = false;
             // 
+            // lblSessions
+            // 
+            this.lblSessions.AutoSize = true;
+            this.lblSessions.Location = new System.Drawing.Point(6, 166);
+            this.lblSessions.Name = "lblSessions";
+            this.lblSessions.Size = new System.Drawing.Size(47, 13);
+            this.lblSessions.TabIndex = 2;
+            this.lblSessions.Text = "Сеанси:";
+            // 
             // gcSessions
             // 
-            this.gcSessions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSessions.Location = new System.Drawing.Point(3, 163);
-            this.gcSessions.MainView = this.gridView2;
+            this.gcSessions.Location = new System.Drawing.Point(3, 186);
+            this.gcSessions.MainView = this.gvSessions;
             this.gcSessions.Name = "gcSessions";
-            this.gcSessions.Size = new System.Drawing.Size(695, 180);
+            this.gcSessions.Size = new System.Drawing.Size(695, 171);
             this.gcSessions.TabIndex = 1;
             this.gcSessions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gvSessions});
             // 
-            // gridView2
+            // gvSessions
             // 
-            this.gridView2.GridControl = this.gcSessions;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsCustomization.AllowFilter = false;
-            this.gridView2.OptionsCustomization.AllowGroup = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gvSessions.GridControl = this.gcSessions;
+            this.gvSessions.Name = "gvSessions";
+            this.gvSessions.OptionsBehavior.Editable = false;
+            this.gvSessions.OptionsCustomization.AllowFilter = false;
+            this.gvSessions.OptionsCustomization.AllowGroup = false;
+            this.gvSessions.OptionsView.ShowGroupPanel = false;
             // 
             // gcCustomers
             // 
@@ -399,23 +403,23 @@ namespace Salt.Spa.Win
             this.gcCustomers.Location = new System.Drawing.Point(3, 16);
             this.gcCustomers.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.gcCustomers.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gcCustomers.MainView = this.gridView1;
+            this.gcCustomers.MainView = this.gvCustomers;
             this.gcCustomers.Name = "gcCustomers";
             this.gcCustomers.Size = new System.Drawing.Size(695, 147);
             this.gcCustomers.TabIndex = 0;
             this.gcCustomers.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
             this.gcCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gvCustomers});
             // 
-            // gridView1
+            // gvCustomers
             // 
-            this.gridView1.GridControl = this.gcCustomers;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsCustomization.AllowFilter = false;
-            this.gridView1.OptionsCustomization.AllowGroup = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
+            this.gvCustomers.GridControl = this.gcCustomers;
+            this.gvCustomers.Name = "gvCustomers";
+            this.gvCustomers.OptionsBehavior.Editable = false;
+            this.gvCustomers.OptionsCustomization.AllowFilter = false;
+            this.gvCustomers.OptionsCustomization.AllowGroup = false;
+            this.gvCustomers.OptionsView.ShowGroupPanel = false;
+            this.gvCustomers.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCustomers_RowClick);
             // 
             // gbParameters
             // 
@@ -444,6 +448,7 @@ namespace Salt.Spa.Win
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Змінити";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnLock
             // 
@@ -452,8 +457,9 @@ namespace Salt.Spa.Win
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(75, 23);
             this.btnLock.TabIndex = 7;
-            this.btnLock.Text = "Блокувати";
+            this.btnLock.Text = "Загублено";
             this.btnLock.UseVisualStyleBackColor = true;
+            this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
             // 
             // txtPhone
             // 
@@ -533,6 +539,7 @@ namespace Salt.Spa.Win
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.Text = "Salt SPA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
@@ -549,13 +556,15 @@ namespace Salt.Spa.Win
             ((System.ComponentModel.ISupportInitialize)(this.schDailyScheduler)).EndInit();
             this.tbSearch.ResumeLayout(false);
             this.gbCustomerGrid.ResumeLayout(false);
+            this.gbCustomerGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSessions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSessions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCustomers)).EndInit();
             this.gbParameters.ResumeLayout(false);
             this.gbParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,9 +579,8 @@ namespace Salt.Spa.Win
         private SchedulerControl schDailyScheduler;
         private System.Windows.Forms.TabPage tbSaltRoom;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem клієнтиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem додатиКлієнтаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newCustomerToolStripMenuItem;
         private System.Windows.Forms.TabPage tbSearch;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutSaltSPAToolStripMenuItem;
@@ -599,11 +607,13 @@ namespace Salt.Spa.Win
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.GroupBox gbCustomerGrid;
-        private System.Windows.Forms.BindingSource clientBindingSource;
+        private System.Windows.Forms.BindingSource customerSource;
         private DevExpress.XtraGrid.GridControl gcCustomers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCustomers;
         private DevExpress.XtraGrid.GridControl gcSessions;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvSessions;
+        private System.Windows.Forms.BindingSource sessionSource;
+        private System.Windows.Forms.Label lblSessions;
     }
 }
 

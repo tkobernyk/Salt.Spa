@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Salt.Spa.Dal.Interface
 {
-    public interface ISubscriptionRepository
+    public interface ISessionRepository
     {
-        Subscription FindBySubscription(string number);
+        IEnumerable<Session> FindByCustomerId(int customerId);
     }
 }

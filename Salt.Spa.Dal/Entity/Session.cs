@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Salt.Spa.Infrastructure.Interface;
+using Salt.Spa.Infrastructure.Entity;
 
 namespace Salt.Spa.Dal.Entity
 {
@@ -18,6 +15,10 @@ namespace Salt.Spa.Dal.Entity
         [Required]
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
+        public int SubscriptionId { get; set; }
+        [Required]
+        [ForeignKey("SubscriptionId")]
+        public virtual Subscription Subscription { get; set; }
         [Required]
         public DateTime DateTimeStart { get; set; }
         [Required]

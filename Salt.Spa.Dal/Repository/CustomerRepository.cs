@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Salt.Spa.Dal.Entity;
 using Salt.Spa.Dal.Interface;
@@ -42,13 +43,20 @@ namespace Salt.Spa.Dal.Repository
             return _context.Customers.FirstOrDefault(c => c.Id == entityId);
         }
 
+        public Customer FindByCustomerId(int customerId)
+        {
+            return _context.Customers.Include(c => c.Subscription).SingleOrDefault(c => c.Id == customerId);
+        }
         public IEnumerable<Customer> FindByLastName(string lastName)
         {
-            return _context.Customers.Where(c => c.LastName == lastName);
+            return _context.Customers.Include(c => c.Subscription)
+                .Where(c => c.LastName == lastName);
         }
+
         public IEnumerable<Customer> FindByPhone(string phone)
         {
-            return _context.Customers.Where(c => c.Phone == phone);
+            return _context.Customers.Include(c => c.Subscription)
+                .Where(c => c.Phone == phone);
         }
         public IEnumerable<Customer> GetAll()
         {

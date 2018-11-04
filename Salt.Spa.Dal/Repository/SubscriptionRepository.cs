@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using Salt.Spa.Dal.Entity;
 using Salt.Spa.Dal.Interface;
@@ -25,7 +26,9 @@ namespace Salt.Spa.Dal.Repository
 
         public Subscription Update(Subscription entity)
         {
-            throw new NotImplementedException();
+            _context.Subscriptions.AddOrUpdate(entity);
+            _context.SaveChanges();
+            return GetById(entity.Id);
         }
 
         public bool Delete(Subscription entity)
@@ -42,22 +45,10 @@ namespace Salt.Spa.Dal.Repository
         {
             return _context.Subscriptions.FirstOrDefault(c => c.Id == entityId);
         }
-        public IEnumerable<Subscription> FindBySubscription(string number)
+        public Subscription FindBySubscription(string number)
         {
-            return _context.Subscriptions
-                .Include(s => s.Customer)
-                .Where(s => s.Number == number);
-        }
-        public IEnumerable<Subscription> FindByLastName(string lastName)
-        {
-            return _context.Subscriptions.Include(s => s.Customer)
-                .Where(s => s.Customer.LastName == lastName);
-        }
-
-        public IEnumerable<Subscription> FindByPhone(string phone)
-        {
-            return _context.Subscriptions.Include(s => s.Customer)
-                .Where(s => s.Customer.Phone == phone);
+            return _context.Subscriptions.Include(s => s.Customers)
+                .FirstOrDefault(s => s.Number == number);
         }
         public IEnumerable<Subscription> GetAll()
         {

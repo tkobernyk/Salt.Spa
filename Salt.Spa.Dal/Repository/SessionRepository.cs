@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Salt.Spa.Dal.Entity;
 using Salt.Spa.Dal.Interface;
@@ -7,7 +8,7 @@ using Salt.Spa.Infrastructure.Interface;
 
 namespace Salt.Spa.Dal.Repository
 {
-    public class SessionRepository : IRepository<Session>
+    public class SessionRepository : IRepository<Session>, ISessionRepository
     {
         private readonly ISessionContext _context;
         public SessionRepository(ISessionContext context)
@@ -45,6 +46,11 @@ namespace Salt.Spa.Dal.Repository
         public IEnumerable<Session> GetAll()
         {
             return _context.Sessions;
+        }
+
+        public IEnumerable<Session> FindByCustomerId(int customerId)
+        {
+            return _context.Sessions.Include(s => s.Customer).Include(s => s.Subscription).Where(s => s.CustomerId == customerId);
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Salt.Spa.Dal;
 using Salt.Spa.Unity;
 
 namespace Salt.Spa.Win

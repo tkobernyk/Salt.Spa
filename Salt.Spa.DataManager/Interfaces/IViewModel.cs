@@ -1,7 +1,7 @@
 ﻿
 namespace Salt.Spa.DataManager.Interfaces
 {
-    public interface IDto
+    public interface IViewModel
     {
     }
 }

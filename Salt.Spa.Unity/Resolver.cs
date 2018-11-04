@@ -16,6 +16,7 @@ namespace Salt.Spa.Unity
     public static class Resolver
     {
         private static UnityContainer _container = new UnityContainer();
+
         public static void InitContainer()
         {
             _container.RegisterType<ICustomerContext, SaltSpaContext>();
@@ -26,7 +27,9 @@ namespace Salt.Spa.Unity
             _container.RegisterType<IRepository<Subscription>, SubscriptionRepository>();
             _container.RegisterType<ICustomerRepository, CustomerRepository>();
             _container.RegisterType<ISubscriptionRepository, SubscriptionRepository>();
-            _container.RegisterType<IFactory<CustomerSubscription>, CustomerFactory>(new SingletonLifetimeManager());
+            _container.RegisterType<IManager<CustomerSubscription>, CustomerManager>(new SingletonLifetimeManager());
+            _container.RegisterType<IManager<CustomerSession>, SessionManager>(new SingletonLifetimeManager());
+            _container.RegisterType<IManager<SubscriptionSubscription>, SubscriptionManager>(new SingletonLifetimeManager());
         }
 
         public static T Get<T>()
