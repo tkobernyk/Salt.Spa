@@ -44,17 +44,9 @@ namespace Salt.Spa.Win
             this.aboutSaltSPAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbsMain = new System.Windows.Forms.TabControl();
             this.tbSaltRoom = new System.Windows.Forms.TabPage();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.btnSit6 = new System.Windows.Forms.Button();
-            this.btnSit7 = new System.Windows.Forms.Button();
-            this.btnSit8 = new System.Windows.Forms.Button();
-            this.btnSit9 = new System.Windows.Forms.Button();
-            this.btnSit10 = new System.Windows.Forms.Button();
-            this.btnSit5 = new System.Windows.Forms.Button();
-            this.btnSit4 = new System.Windows.Forms.Button();
-            this.btnSit3 = new System.Windows.Forms.Button();
-            this.btnSit2 = new System.Windows.Forms.Button();
-            this.btnSit1 = new System.Windows.Forms.Button();
+            this.gcCurrentState = new DevExpress.XtraGrid.GridControl();
+            this.gvCurrentState = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gbPlaces = new System.Windows.Forms.GroupBox();
             this.tbScheduler = new System.Windows.Forms.TabPage();
             this.dnCalendar = new DevExpress.XtraScheduler.DateNavigator();
             this.schDailyScheduler = new DevExpress.XtraScheduler.SchedulerControl();
@@ -83,8 +75,8 @@ namespace Salt.Spa.Win
             this.menuStrip1.SuspendLayout();
             this.tbsMain.SuspendLayout();
             this.tbSaltRoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCurrentState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCurrentState)).BeginInit();
             this.tbScheduler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dnCalendar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dnCalendar.CalendarTimeProperties)).BeginInit();
@@ -126,7 +118,7 @@ namespace Salt.Spa.Win
             // newCustomerToolStripMenuItem
             // 
             this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
-            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.newCustomerToolStripMenuItem.Text = "Новий клієнт";
             this.newCustomerToolStripMenuItem.Click += new System.EventHandler(this.newCustomerToolStripMenuItem_Click);
             // 
@@ -153,150 +145,51 @@ namespace Salt.Spa.Win
             this.tbsMain.Location = new System.Drawing.Point(0, 24);
             this.tbsMain.Name = "tbsMain";
             this.tbsMain.SelectedIndex = 0;
-            this.tbsMain.Size = new System.Drawing.Size(1006, 438);
+            this.tbsMain.Size = new System.Drawing.Size(1006, 510);
             this.tbsMain.TabIndex = 3;
             // 
             // tbSaltRoom
             // 
-            this.tbSaltRoom.Controls.Add(this.groupControl1);
+            this.tbSaltRoom.Controls.Add(this.gcCurrentState);
+            this.tbSaltRoom.Controls.Add(this.gbPlaces);
             this.tbSaltRoom.Location = new System.Drawing.Point(4, 22);
             this.tbSaltRoom.Name = "tbSaltRoom";
             this.tbSaltRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tbSaltRoom.Size = new System.Drawing.Size(998, 412);
+            this.tbSaltRoom.Size = new System.Drawing.Size(998, 484);
             this.tbSaltRoom.TabIndex = 1;
             this.tbSaltRoom.Text = "Соляна Кімната";
             this.tbSaltRoom.UseVisualStyleBackColor = true;
             // 
-            // groupControl1
+            // gcCurrentState
             // 
-            this.groupControl1.Controls.Add(this.btnSit6);
-            this.groupControl1.Controls.Add(this.btnSit7);
-            this.groupControl1.Controls.Add(this.btnSit8);
-            this.groupControl1.Controls.Add(this.btnSit9);
-            this.groupControl1.Controls.Add(this.btnSit10);
-            this.groupControl1.Controls.Add(this.btnSit5);
-            this.groupControl1.Controls.Add(this.btnSit4);
-            this.groupControl1.Controls.Add(this.btnSit3);
-            this.groupControl1.Controls.Add(this.btnSit2);
-            this.groupControl1.Controls.Add(this.btnSit1);
-            this.groupControl1.Location = new System.Drawing.Point(8, 17);
-            this.groupControl1.LookAndFeel.SkinName = "Visual Studio 2013 Light";
-            this.groupControl1.LookAndFeel.TouchUIMode = DevExpress.Utils.DefaultBoolean.False;
-            this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(559, 343);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "groupControl1";
+            this.gcCurrentState.Location = new System.Drawing.Point(271, 6);
+            this.gcCurrentState.LookAndFeel.SkinName = "Visual Studio 2013 Light";
+            this.gcCurrentState.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gcCurrentState.MainView = this.gvCurrentState;
+            this.gcCurrentState.Name = "gcCurrentState";
+            this.gcCurrentState.Size = new System.Drawing.Size(731, 426);
+            this.gcCurrentState.TabIndex = 21;
+            this.gcCurrentState.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCurrentState});
             // 
-            // btnSit6
+            // gvCurrentState
             // 
-            this.btnSit6.BackColor = System.Drawing.Color.Red;
-            this.btnSit6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit6.Location = new System.Drawing.Point(5, 199);
-            this.btnSit6.Name = "btnSit6";
-            this.btnSit6.Size = new System.Drawing.Size(100, 100);
-            this.btnSit6.TabIndex = 9;
-            this.btnSit6.Text = "Місце 6";
-            this.btnSit6.UseVisualStyleBackColor = false;
+            this.gvCurrentState.GridControl = this.gcCurrentState;
+            this.gvCurrentState.Name = "gvCurrentState";
+            this.gvCurrentState.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.gvCurrentState.OptionsBehavior.Editable = false;
+            this.gvCurrentState.OptionsCustomization.AllowGroup = false;
+            this.gvCurrentState.OptionsView.ShowGroupPanel = false;
             // 
-            // btnSit7
+            // gbPlaces
             // 
-            this.btnSit7.BackColor = System.Drawing.Color.White;
-            this.btnSit7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit7.Location = new System.Drawing.Point(111, 199);
-            this.btnSit7.Name = "btnSit7";
-            this.btnSit7.Size = new System.Drawing.Size(100, 100);
-            this.btnSit7.TabIndex = 8;
-            this.btnSit7.Text = "Місце 7";
-            this.btnSit7.UseVisualStyleBackColor = false;
-            // 
-            // btnSit8
-            // 
-            this.btnSit8.BackColor = System.Drawing.Color.White;
-            this.btnSit8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit8.Location = new System.Drawing.Point(217, 199);
-            this.btnSit8.Name = "btnSit8";
-            this.btnSit8.Size = new System.Drawing.Size(100, 100);
-            this.btnSit8.TabIndex = 7;
-            this.btnSit8.Text = "Місце 8";
-            this.btnSit8.UseVisualStyleBackColor = false;
-            // 
-            // btnSit9
-            // 
-            this.btnSit9.BackColor = System.Drawing.Color.White;
-            this.btnSit9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit9.Location = new System.Drawing.Point(323, 199);
-            this.btnSit9.Name = "btnSit9";
-            this.btnSit9.Size = new System.Drawing.Size(100, 100);
-            this.btnSit9.TabIndex = 6;
-            this.btnSit9.Text = "Місце 9";
-            this.btnSit9.UseVisualStyleBackColor = false;
-            // 
-            // btnSit10
-            // 
-            this.btnSit10.BackColor = System.Drawing.Color.White;
-            this.btnSit10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit10.Location = new System.Drawing.Point(429, 199);
-            this.btnSit10.Name = "btnSit10";
-            this.btnSit10.Size = new System.Drawing.Size(100, 100);
-            this.btnSit10.TabIndex = 5;
-            this.btnSit10.Text = "Місце 10";
-            this.btnSit10.UseVisualStyleBackColor = false;
-            // 
-            // btnSit5
-            // 
-            this.btnSit5.BackColor = System.Drawing.Color.Orange;
-            this.btnSit5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit5.Location = new System.Drawing.Point(429, 52);
-            this.btnSit5.Name = "btnSit5";
-            this.btnSit5.Size = new System.Drawing.Size(100, 100);
-            this.btnSit5.TabIndex = 4;
-            this.btnSit5.Text = "Місце 5";
-            this.btnSit5.UseVisualStyleBackColor = false;
-            // 
-            // btnSit4
-            // 
-            this.btnSit4.BackColor = System.Drawing.Color.Orange;
-            this.btnSit4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit4.Location = new System.Drawing.Point(323, 52);
-            this.btnSit4.Name = "btnSit4";
-            this.btnSit4.Size = new System.Drawing.Size(100, 100);
-            this.btnSit4.TabIndex = 3;
-            this.btnSit4.Text = "Місце 4";
-            this.btnSit4.UseVisualStyleBackColor = false;
-            // 
-            // btnSit3
-            // 
-            this.btnSit3.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSit3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit3.Location = new System.Drawing.Point(217, 52);
-            this.btnSit3.Name = "btnSit3";
-            this.btnSit3.Size = new System.Drawing.Size(100, 100);
-            this.btnSit3.TabIndex = 2;
-            this.btnSit3.Text = "Місце 3";
-            this.btnSit3.UseVisualStyleBackColor = false;
-            // 
-            // btnSit2
-            // 
-            this.btnSit2.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit2.Location = new System.Drawing.Point(111, 52);
-            this.btnSit2.Name = "btnSit2";
-            this.btnSit2.Size = new System.Drawing.Size(100, 100);
-            this.btnSit2.TabIndex = 1;
-            this.btnSit2.Text = "Місце 2";
-            this.btnSit2.UseVisualStyleBackColor = false;
-            // 
-            // btnSit1
-            // 
-            this.btnSit1.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSit1.Location = new System.Drawing.Point(5, 52);
-            this.btnSit1.Name = "btnSit1";
-            this.btnSit1.Size = new System.Drawing.Size(100, 100);
-            this.btnSit1.TabIndex = 0;
-            this.btnSit1.Text = "Місце 1";
-            this.btnSit1.UseVisualStyleBackColor = false;
+            this.gbPlaces.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbPlaces.Location = new System.Drawing.Point(3, 3);
+            this.gbPlaces.Name = "gbPlaces";
+            this.gbPlaces.Size = new System.Drawing.Size(261, 478);
+            this.gbPlaces.TabIndex = 20;
+            this.gbPlaces.TabStop = false;
+            this.gbPlaces.Text = "groupBox1";
             // 
             // tbScheduler
             // 
@@ -305,7 +198,7 @@ namespace Salt.Spa.Win
             this.tbScheduler.Location = new System.Drawing.Point(4, 22);
             this.tbScheduler.Name = "tbScheduler";
             this.tbScheduler.Padding = new System.Windows.Forms.Padding(3);
-            this.tbScheduler.Size = new System.Drawing.Size(998, 412);
+            this.tbScheduler.Size = new System.Drawing.Size(998, 484);
             this.tbScheduler.TabIndex = 0;
             this.tbScheduler.Text = "Планувальник";
             this.tbScheduler.UseVisualStyleBackColor = true;
@@ -316,6 +209,8 @@ namespace Salt.Spa.Win
             this.dnCalendar.CalendarAppearance.DayCellSpecial.Options.UseFont = true;
             this.dnCalendar.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dnCalendar.DateTime = new System.DateTime(2018, 11, 4, 0, 0, 0, 0);
+            this.dnCalendar.EditValue = new System.DateTime(2018, 11, 4, 0, 0, 0, 0);
             this.dnCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dnCalendar.Location = new System.Drawing.Point(3, 6);
             this.dnCalendar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
@@ -332,7 +227,7 @@ namespace Salt.Spa.Win
             this.schDailyScheduler.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.schDailyScheduler.LookAndFeel.UseDefaultLookAndFeel = false;
             this.schDailyScheduler.Name = "schDailyScheduler";
-            this.schDailyScheduler.Size = new System.Drawing.Size(700, 440);
+            this.schDailyScheduler.Size = new System.Drawing.Size(731, 426);
             this.schDailyScheduler.Start = new System.DateTime(2018, 9, 4, 0, 0, 0, 0);
             this.schDailyScheduler.TabIndex = 1;
             this.schDailyScheduler.Views.DayView.ShowWorkTimeOnly = true;
@@ -351,7 +246,7 @@ namespace Salt.Spa.Win
             this.tbSearch.Controls.Add(this.gbParameters);
             this.tbSearch.Location = new System.Drawing.Point(4, 22);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(998, 412);
+            this.tbSearch.Size = new System.Drawing.Size(998, 484);
             this.tbSearch.TabIndex = 2;
             this.tbSearch.Text = "Пошук";
             this.tbSearch.UseVisualStyleBackColor = true;
@@ -361,9 +256,9 @@ namespace Salt.Spa.Win
             this.gbCustomerGrid.Controls.Add(this.lblSessions);
             this.gbCustomerGrid.Controls.Add(this.gcSessions);
             this.gbCustomerGrid.Controls.Add(this.gcCustomers);
-            this.gbCustomerGrid.Location = new System.Drawing.Point(289, 3);
+            this.gbCustomerGrid.Location = new System.Drawing.Point(261, 3);
             this.gbCustomerGrid.Name = "gbCustomerGrid";
-            this.gbCustomerGrid.Size = new System.Drawing.Size(701, 346);
+            this.gbCustomerGrid.Size = new System.Drawing.Size(729, 346);
             this.gbCustomerGrid.TabIndex = 1;
             this.gbCustomerGrid.TabStop = false;
             this.gbCustomerGrid.Text = "Знайдені клієнти";
@@ -405,7 +300,7 @@ namespace Salt.Spa.Win
             this.gcCustomers.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gcCustomers.MainView = this.gvCustomers;
             this.gcCustomers.Name = "gcCustomers";
-            this.gcCustomers.Size = new System.Drawing.Size(695, 147);
+            this.gcCustomers.Size = new System.Drawing.Size(723, 147);
             this.gcCustomers.TabIndex = 0;
             this.gcCustomers.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
             this.gcCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -434,7 +329,7 @@ namespace Salt.Spa.Win
             this.gbParameters.Controls.Add(this.lblLastName);
             this.gbParameters.Location = new System.Drawing.Point(3, 3);
             this.gbParameters.Name = "gbParameters";
-            this.gbParameters.Size = new System.Drawing.Size(250, 250);
+            this.gbParameters.Size = new System.Drawing.Size(252, 250);
             this.gbParameters.TabIndex = 0;
             this.gbParameters.TabStop = false;
             this.gbParameters.Text = "Параметри пошуку";
@@ -522,7 +417,7 @@ namespace Salt.Spa.Win
             // pnlNotification
             // 
             this.pnlNotification.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlNotification.Location = new System.Drawing.Point(0, 412);
+            this.pnlNotification.Location = new System.Drawing.Point(0, 484);
             this.pnlNotification.Name = "pnlNotification";
             this.pnlNotification.Size = new System.Drawing.Size(1006, 50);
             this.pnlNotification.TabIndex = 4;
@@ -532,7 +427,7 @@ namespace Salt.Spa.Win
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 462);
+            this.ClientSize = new System.Drawing.Size(1006, 534);
             this.Controls.Add(this.pnlNotification);
             this.Controls.Add(this.tbsMain);
             this.Controls.Add(this.menuStrip1);
@@ -548,8 +443,8 @@ namespace Salt.Spa.Win
             this.menuStrip1.PerformLayout();
             this.tbsMain.ResumeLayout(false);
             this.tbSaltRoom.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcCurrentState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCurrentState)).EndInit();
             this.tbScheduler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dnCalendar.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dnCalendar)).EndInit();
@@ -591,17 +486,6 @@ namespace Salt.Spa.Win
         private System.Windows.Forms.Label lblSubscription;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Panel pnlNotification;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.Button btnSit6;
-        private System.Windows.Forms.Button btnSit7;
-        private System.Windows.Forms.Button btnSit8;
-        private System.Windows.Forms.Button btnSit9;
-        private System.Windows.Forms.Button btnSit10;
-        private System.Windows.Forms.Button btnSit5;
-        private System.Windows.Forms.Button btnSit4;
-        private System.Windows.Forms.Button btnSit3;
-        private System.Windows.Forms.Button btnSit2;
-        private System.Windows.Forms.Button btnSit1;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnLock;
         private System.Windows.Forms.TextBox txtPhone;
@@ -614,6 +498,9 @@ namespace Salt.Spa.Win
         private DevExpress.XtraGrid.Views.Grid.GridView gvSessions;
         private System.Windows.Forms.BindingSource sessionSource;
         private System.Windows.Forms.Label lblSessions;
+        private DevExpress.XtraGrid.GridControl gcCurrentState;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCurrentState;
+        private System.Windows.Forms.GroupBox gbPlaces;
     }
 }
 

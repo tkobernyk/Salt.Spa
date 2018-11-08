@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraScheduler;
@@ -24,8 +25,9 @@ namespace Salt.Spa.Win
         {
             InitPosition(tbsMain, schDailyScheduler, dnCalendar);
             InitPosition(tbsMain, gbCustomerGrid, gbParameters);
+            InitPosition(tbsMain, gcCurrentState, gbPlaces);
             InitTop(gbCustomerGrid, gcCustomers, gcSessions);
-
+            InitPlacesView(gcCurrentState);
             _customerManager = Resolver.Get<IManager<CustomerSubscription>>();
             _sessionManager = Resolver.Get<IManager<CustomerSession>>();
             _subscriptionManager = Resolver.Get<IManager<SubscriptionSubscription>>();
@@ -34,7 +36,10 @@ namespace Salt.Spa.Win
         {
             InitPosition(tbsMain, schDailyScheduler, dnCalendar);
             InitPosition(tbsMain, gbCustomerGrid, gbParameters);
+            InitPosition(tbsMain, gcCurrentState, gbPlaces);
             InitTop(gbCustomerGrid, gcCustomers, gcSessions);
+            InitPlacesView(gcCurrentState);
+
         }
 
         private void schDailyScheduler_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
@@ -56,7 +61,6 @@ namespace Salt.Spa.Win
         {
             //e.Menu = new SchedulerPopupMenu();
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var customers = _customerManager.Search(GetParameters()).ToList();
@@ -64,7 +68,7 @@ namespace Salt.Spa.Win
             {
                 SetDataSource(customers, customerSource, gcCustomers);
                 InitSessionsGridControl(GetValueFromGridViewByCoumnName<int>(gvCustomers, gvCustomers.FocusedRowHandle, "CustomerId"));
-                SetBtnLockText(GetValueFromGridViewByCoumnName<SubscriptionStatus>(gvCustomers, gvCustomers.FocusedRowHandle, "Status") == SubscriptionStatus.Active);
+                SetBtnLockText(GetValueFromGridViewByCoumnName<SubscriptionStatus>(gvCustomers, gvCustomers.FocusedRowHandle, "Status") == SubscriptionStatus.Lost);
             }
             ShowHideGrids(customers.Count() > 0);
         }
@@ -80,7 +84,7 @@ namespace Salt.Spa.Win
                 _subscriptionManager.CreateOrUpdate(subSubscription);
             }
             gvCustomers.SetRowCellValue(gvCustomers.FocusedRowHandle, "Status", status == SubscriptionStatus.Lost ? SubscriptionStatus.Active : SubscriptionStatus.Lost);
-            SetBtnLockText(status != SubscriptionStatus.Lost);
+            SetBtnLockText(status == SubscriptionStatus.Lost);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -155,11 +159,55 @@ namespace Salt.Spa.Win
             bottom.Height = parent.Height - (top.Bottom + 20) - 5;
         }
 
+        private void InitPlacesView(Control neighboring)
+        {
+            gbPlaces.Dock = DockStyle.None;
+            gbPlaces.Width = 250;
+            gbPlaces.Height = tbsMain.Height - 84;
+            gbPlaces.Top = neighboring.Top - 5;
+            var size = (gbPlaces.Height-48) / 5;
+            size = size > 115 ? 115 : size;
+            GeneratePlaces(gbPlaces, size, true);
+            //GeneratePlaces(gbPlaces, size, false);
+        }
+        private void GeneratePlaces(Control parent, int size, bool isLeft)
+        {
+            if(parent.Controls.Count == 0)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    var number = isLeft ? i : i * 10;
+                    var place = new Button
+                    {
+                        Name = $"btnPlace{number}",
+                        Text = $"{number}",
+                        Size = new Size(size, size),
+                        Top = parent.Top + 6 + size * i,
+                        Left = isLeft ?  parent.Left + 6 : parent.Right - 6 - size,
+                        Visible = true
+                    };
+                    parent.Controls.Add(place);}             
+            }
+            else
+            {
+                parent.Controls[0].Top = parent.Top + 12;
+                parent.Controls[0].Size = new Size(size, size);
+                parent.Controls[0].Left = isLeft ? parent.Left + 6 : parent.Right - 6 - size;
+                for (int i = 1; i < parent.Controls.Count / 2; i++)
+                { 
+                    parent.Controls[i].Size = new Size(size, size);
+                    parent.Controls[i].Top = parent.Controls[i - 1].Bottom + 6;
+                    parent.Controls[i].Left = isLeft ? parent.Left + 6 : parent.Right - 6 - size;
+                }
+            }
+        }
+
         private void ShowAddForm(CustomerSubscription cs)
         {
             using (AddCustomerSubscriptionForm addForm = new AddCustomerSubscriptionForm(cs))
             {
                 addForm.ShowDialog();
             }
-        }}
+        }
+    }
 }
